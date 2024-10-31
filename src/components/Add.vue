@@ -14,11 +14,10 @@
     </div>
     <div class="form-group">
       <label for="content">Content</label>
-<!--      <editor-content :content="content" />-->
       <input type="text" class="form-control" id="content" name="content" v-model="content">
     </div>
-
     <button type="submit" class="btn btn-primary" @click="addItem" :disabled="disabledButton">Add</button>
+    <TipTap @tipTap="tipTap"></TipTap>
   </div>
 </template>
 
@@ -27,8 +26,9 @@
 import axios from "axios";
 import {uuid} from "vue-uuid";
 import router from "@/router";
-// import { Editor } from '@tiptap/vue-2'
-// import {StarterKit} from "@tiptap/starter-kit";
+import TipTap from './TipTap.vue'
+// import { Editor, EditorContent } from '@tiptap/vue-2'
+// import StarterKit from '@tiptap/starter-kit'
 
 export default {
   name: 'AddView',
@@ -38,10 +38,10 @@ export default {
       title: '',
       slug: '',
       keywords: '',
-      content: ''
+      content: '<p>A Vue.js wrapper component for Tiptap to use <code>v-model</code>.</p>'
     }
   },
-  components: {},
+  components: {TipTap},
   methods: {
     addItem() {
       if (!this.title || !this.keywords || !this.content) {
@@ -64,12 +64,15 @@ export default {
       this.content = ''
       this.disabledButton = false
       router.push('/')
+    },
+    tipTap(data){
+      console.log(data)
     }
   },
   mounted() {
     // this.content = new Editor({
     //   content: '<p>I’m running Tiptap with Vue.js. 🎉</p>',
-    //   // extensions: [StarterKit],
+    //   extensions: [StarterKit],
     // })
     // console.log()
   },
