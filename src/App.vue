@@ -1,32 +1,19 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <nav class="text-center mt-4 mb-4">
+      <h2>
+        <router-link :to="{name:'home'}" v-show="this.$route.name === 'add' || this.$route.name === 'edit'">Home</router-link>
+      </h2>
+
+      <h2>
+        <router-link :to="{name:'add'}" v-show="this.$route.name === 'home'">Add</router-link>
+      </h2>
     </nav>
     <router-view/>
   </div>
 </template>
-
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
+<script setup>
+</script>
