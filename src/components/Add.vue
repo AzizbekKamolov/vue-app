@@ -17,7 +17,7 @@
       <input type="text" class="form-control" id="content" name="content" v-model="content">
     </div>
     <button type="submit" class="btn btn-primary" @click="addItem" :disabled="disabledButton">Add</button>
-    <TipTap @tipTap="tipTap"></TipTap>
+<!--    <TipTap @tipTap="tipTap"></TipTap>-->
   </div>
 </template>
 
@@ -26,7 +26,7 @@
 import axios from "axios";
 import {uuid} from "vue-uuid";
 import router from "@/router";
-import TipTap from './TipTap.vue'
+// import TipTap from './TipTap.vue'
 // import { Editor, EditorContent } from '@tiptap/vue-2'
 // import StarterKit from '@tiptap/starter-kit'
 
@@ -38,10 +38,12 @@ export default {
       title: '',
       slug: '',
       keywords: '',
-      content: '<p>A Vue.js wrapper component for Tiptap to use <code>v-model</code>.</p>'
+      content: ''
     }
   },
-  components: {TipTap},
+  components: {
+    // TipTap
+  },
   methods: {
     addItem() {
       if (!this.title || !this.keywords || !this.content) {

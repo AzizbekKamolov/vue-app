@@ -2,7 +2,7 @@
   <div id="app">
     <nav class="text-center mt-4 mb-4">
       <h2>
-        <router-link :to="{name:'home'}" v-show="this.$route.name === 'add' || this.$route.name === 'edit'">Home</router-link>
+        <router-link :to="{name:'home'}" v-show="this.$route.name !== 'home'">Home</router-link>
       </h2>
 
       <h2>
